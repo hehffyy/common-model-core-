@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.FormLogicPlugin"
+        table="M_FormLogicPlugin"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-FormLogicPlugin.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="formGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FformGuid" 
+                length="32"
+                index="M_FormLogicPlugin_Form"
+            />
+        </property>
+
+        <property
+            name="elementId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FelementId" 
+            />
+        </property>
+
+        <property
+            name="className"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FLogicClass"
+            length="100"
+        />
+
+        <property
+            name="parameter"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FParameter"
+        />
+
+        <property
+            name="dispName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDispName"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="relBizDatas"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FRelBizDatas"
+            length="1000"
+        />
+
+        <property
+            name="desc"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDesc"
+            length="200"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-FormLogicPlugin.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

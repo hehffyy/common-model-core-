@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.ActFieldOption"
+        table="M_ActFieldOption"
+    >
+        <comment>
+			环节字段选项
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ActFieldOption.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="actGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FactGuid" 
+                length="32"
+                unique-key="M_M_ActFieldOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="tableGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FTableGuid" 
+                length="32"
+                unique-key="M_M_ActFieldOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="fieldGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FfieldGuid" 
+                length="32"
+                unique-key="M_M_ActFieldOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="readonlyExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FreadonlyExpr"
+            length="1000"
+        />
+
+        <property
+            name="calcExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FcalcExpr"
+            length="1000"
+        />
+
+        <property
+            name="visibleExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="fvisibleExpr"
+            length="1000"
+        />
+
+        <property
+            name="requiredExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="frequiredExpr"
+            length="1000"
+        />
+
+        <property
+            name="constraintExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="fconstraintExpr"
+            length="1000"
+        />
+
+        <property
+            name="tipInfo"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="ftipInfo"
+            length="100"
+        />
+
+        <property
+            name="readonly"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="Freadonly"
+        />
+
+        <property
+            name="defalutValue"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FdefaultValue"
+            length="1000"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ActFieldOption.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

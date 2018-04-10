@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.FileImportPlugin"
+        table="M_FileImportPlugin"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-FileImportPlugin.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="relBizDatas"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FRelBizDatas"
+            length="1000"
+        />
+
+        <property
+            name="bizGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FBizGuid" 
+                length="32"
+                unique-key="M_FileImpPlugin_NAME_BIZ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="200"
+                unique-key="M_FileImpPlugin_NAME_BIZ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="fileType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FFileType"
+            length="50"
+            not-null="true"
+        />
+
+        <property
+            name="importType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FImportType"
+            length="50"
+            not-null="true"
+        />
+
+        <property
+            name="dataModels"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FDataModels"
+        />
+
+        <property
+            name="mappingLogic"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FMappingLogic"
+        />
+
+        <property
+            name="async"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FAsync"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-FileImportPlugin.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

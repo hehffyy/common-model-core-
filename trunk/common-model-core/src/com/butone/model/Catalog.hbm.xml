@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.Catalog"
+        table="M_Catalog"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Catalog.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="parentGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FParentGuid" 
+                length="32"
+                unique-key="M_Catalog_NAME_UNQ"
+            />
+        </property>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="100"
+                unique-key="M_Catalog_NAME_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="dispName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDispName"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <property
+            name="kind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FKind"
+        />
+
+        <property
+            name="path"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FPath"
+            length="1000"
+        />
+
+        <property
+            name="pathName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FPathName"
+            length="2000"
+        />
+
+        <property
+            name="lastModifyTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FLastModifyTime"
+        />
+
+        <property
+            name="syncTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FSyncTime"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Catalog.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

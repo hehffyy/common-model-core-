@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.TableDef"
+        table="M_TableDef"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-TableDef.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="30"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="refTable"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FRefTable" 
+                length="32"
+            ><comment>记录引用的工作表GUID</comment></column>
+        </property>
+
+        <property
+            name="dispName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDispName"
+            length="60"
+            not-null="true"
+        />
+
+        <property
+            name="bizGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FbizGuid" 
+                length="32"
+                index="M_TableDef_Biz"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <property
+            name="orderBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FOrderBy"
+            length="200"
+        />
+
+        <property
+            name="condition"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="Fcondition"
+            length="1000"
+        />
+
+        <property
+            name="masterTable"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FMasterTable" 
+                length="32"
+            ><comment>主表Guid</comment></column>
+        </property>
+
+        <property
+            name="foreignKeys"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FForeignKeys" 
+                length="30"
+            ><comment>对应于主表主键的外键字段</comment></column>
+        </property>
+
+        <property
+            name="cascade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="Fcascade" 
+                length="30"
+            ><comment>明细表级联定义</comment></column>
+        </property>
+
+        <property
+            name="template"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="Ftemplate" 
+                length="32"
+            ><comment>模板</comment></column>
+        </property>
+
+        <property
+            name="kind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="fKind" 
+                length="20"
+            ><comment>表类型</comment></column>
+        </property>
+
+        <property
+            name="isView"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FIsview"
+        />
+
+        <property
+            name="structChanged"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FstructChanged"
+        />
+
+        <property
+            name="properties"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="Fproperties"
+        />
+
+        <property
+            name="deleted"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="Fdeleted"
+        />
+
+        <property
+            name="lastModifyTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FLastModifyTime"
+        />
+
+        <property
+            name="syncTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FSyncTime"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-TableDef.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

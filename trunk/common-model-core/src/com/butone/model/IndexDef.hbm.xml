@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.IndexDef"
+        table="M_IndexDef"
+    >
+        <comment>
+			索引定义
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-IndexDef.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="Fname"
+            length="30"
+            not-null="true"
+            unique="true"
+        />
+
+        <property
+            name="tableGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FtableGuid" 
+                length="32"
+                index="M_IndexDef_Table"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="fieldNames"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FfieldNames"
+            length="200"
+            not-null="true"
+        />
+
+        <property
+            name="isUnique"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FisUnique"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-IndexDef.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

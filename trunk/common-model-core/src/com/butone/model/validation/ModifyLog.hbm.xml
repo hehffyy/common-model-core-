@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.validation.ModifyLog"
+        table="H_ModifyLog"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-BizRule.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property name="name" type="java.lang.String">
+			<column name="fname" length="32" />
+		</property>
+		
+		 <property name="displayName" type="java.lang.String">
+			<column name="fdisplayName" length="32" />
+		</property>
+		
+		 <property name="fieldName" type="java.lang.String">
+			<column name="ffieldName" length="32" />
+		</property>
+		
+		 <property name="modelPath" type="java.lang.String">
+			<column name="fmodelPath" length="32" />
+		</property>
+		
+		 <property name="modelGuid" type="java.lang.String">
+			<column name="fmodelGuid" length="32" />
+		</property>
+		
+		 <property name="action" type="java.lang.String">
+			<column name="faction" length="32" />
+		</property>
+		
+		 <property name="newValue" type="java.lang.String">
+			<column name="fnewValue" length="32" />
+		</property>
+		
+		 <property name="oldValue" type="java.lang.String">
+			<column name="foldValue" length="32" />
+		</property>
+		
+		<property name="logDate" type="java.util.Date">
+			<column name="flogDate" length="7" />
+		</property>
+
+    </class>
+
+</hibernate-mapping>

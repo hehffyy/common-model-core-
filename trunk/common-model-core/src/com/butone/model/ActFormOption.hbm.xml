@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.ActFormOption"
+        table="M_ActFormOption"
+    >
+        <comment>
+			环节表单选项
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ActFormOption.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="actGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FactGuid" 
+                length="32"
+                unique-key="M_ActFormOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="formGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FformGuid" 
+                length="32"
+                unique-key="M_ActFormOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="visibleExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FvisibleExpr"
+            length="1000"
+        />
+
+        <property
+            name="defaultForm"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="fdefaultForm"
+        />
+
+        <property
+            name="mainTable"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FMainTable" 
+                length="32"
+            />
+        </property>
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FOrder"
+        />
+
+        <property
+            name="visibleUIExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FVisibleUIExpr"
+            length="1000"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ActFormOption.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

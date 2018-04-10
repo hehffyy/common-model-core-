@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.vss.VssFileSystem"
+        table="M_VssFileSystem"
+    >
+
+        <id
+            name="guid"
+            column="FGUID"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-VssFileSystem.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="modelGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FModelGuid" 
+                length="32"
+                index="M_VssFileSystem_Model"
+            />
+        </property>
+
+        <property
+            name="modelKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FModelKind"
+            length="20"
+        />
+
+        <property
+            name="createTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FCreateTime"
+        />
+
+        <property
+            name="content"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FContent"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-VssFileSystem.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

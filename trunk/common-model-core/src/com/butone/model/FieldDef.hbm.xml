@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.FieldDef"
+        table="M_FieldDef"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-FieldDef.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="tableGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FTableGuid" 
+                length="32"
+                unique-key="M_FieldDef_NameInTable"
+                not-null="true"
+            ><comment>所属表</comment></column>
+        </property>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="30"
+                unique-key="M_FieldDef_NameInTable"
+                not-null="true"
+            ><comment>字段名</comment></column>
+        </property>
+
+        <property
+            name="dispName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FdispName"
+            length="60"
+            not-null="true"
+        />
+
+        <property
+            name="dataType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDataType"
+            length="10"
+            not-null="true"
+        />
+
+        <property
+            name="length"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FLength"
+        />
+
+        <property
+            name="scale"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FScale"
+        />
+
+        <property
+            name="autoFillDef"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FAutoFillDef"
+        />
+
+        <property
+            name="primary"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FIsPrimary"
+        />
+
+        <property
+            name="unique"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FUnique"
+        />
+
+        <property
+            name="sysField"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FIsSysField"
+        />
+
+        <property
+            name="x5RelationAlias"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FX5RelationAlias"
+        />
+
+        <property
+            name="notNull"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FNotNull"
+        />
+
+        <property
+            name="fieldKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FFieldKind"
+            length="20"
+            not-null="true"
+        />
+
+        <property
+            name="properties"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FProperties"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <property
+            name="refField"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FrefField"
+            length="32"
+        />
+
+        <property
+            name="logicFieldKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FLogicFieldKind"
+            length="20"
+        />
+
+        <property
+            name="logicFieldConfigure"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FLogicFieldConfigure"
+        />
+
+        <property
+            name="editStyle"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FEditStyle"
+            length="20"
+        />
+
+        <property
+            name="lookupDef"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FLookupDef"
+        />
+
+        <property
+            name="readonlyExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FReadonlyExpr"
+            length="1000"
+        />
+
+        <property
+            name="visibleExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FVisibleExpr"
+            length="1000"
+        />
+
+        <property
+            name="requiredExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FRequiredExpr"
+            length="1000"
+        />
+
+        <property
+            name="constraintExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FConstraintExpr"
+            length="1000"
+        />
+
+        <property
+            name="constraintTip"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FConstraintTip"
+            length="100"
+        />
+
+        <property
+            name="taskField"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FtaskField"
+        />
+
+        <property
+            name="queryField"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FqueryField"
+        />
+
+        <property
+            name="dataFormatRegex"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDataFormatRegex"
+            length="20"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-FieldDef.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

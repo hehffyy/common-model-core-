@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.ActBizOperation"
+        table="M_ActBizOperation"
+    >
+        <comment>
+			环节业务操作
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ActBizOperation.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="actGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FactGuid" 
+                length="32"
+                unique-key="M_ActBizOperation_UNOPT"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="operation"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FOperation" 
+                length="50"
+                unique-key="M_ActBizOperation_UNOPT"
+                not-null="true"
+            />
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ActBizOperation.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

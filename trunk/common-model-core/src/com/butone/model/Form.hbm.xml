@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.Form"
+        table="M_Form"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Form.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="bizGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FBizGuid" 
+                length="32"
+                unique-key="M_Form_BizName"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="navGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FnavGuid" 
+                length="32"
+                index="M_Form_NavGuid"
+            />
+        </property>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="32"
+                unique-key="M_Form_BizName"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="displayName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDispName"
+            length="50"
+        />
+
+        <property
+            name="kind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FKind"
+            length="10"
+        />
+
+        <property
+            name="content"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FContent"
+        />
+
+        <property
+            name="modelStruct"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FModelStruct"
+        />
+
+        <property
+            name="url"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FUrl"
+            length="500"
+        />
+
+        <property
+            name="fragment"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FisFragment"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <property
+            name="lastModifyTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FLastModifyTime"
+        />
+
+        <property
+            name="syncTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FSyncTime"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Form.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

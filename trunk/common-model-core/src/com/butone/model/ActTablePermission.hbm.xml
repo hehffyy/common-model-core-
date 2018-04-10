@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.ActTablePermission"
+        table="M_ActTablePermission"
+    >
+        <comment>
+			环节表单选项
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ActTablePermission.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="actGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FactGuid" 
+                length="32"
+                unique-key="M_ActTablePermission_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="tableGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FtableGuid" 
+                length="32"
+                unique-key="M_ActTablePermission_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="permission"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="Fpermission"
+            length="30"
+        />
+
+        <property
+            name="readonly"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FReadOnly"
+        />
+
+        <property
+            name="readonlyExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FReadonlyExpr"
+            length="1000"
+        />
+
+        <property
+            name="insertCondition"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FinsertCondition"
+            length="1000"
+        />
+
+        <property
+            name="deleteCondition"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FdeleteCondition"
+            length="1000"
+        />
+
+        <property
+            name="filter"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FFilter"
+            length="1000"
+        />
+
+        <property
+            name="refreshAfterNew"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FRefreshAfterNew"
+        />
+
+        <property
+            name="tablePlugins"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FtablePlugins"
+            length="1000"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FOrder"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ActTablePermission.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>
