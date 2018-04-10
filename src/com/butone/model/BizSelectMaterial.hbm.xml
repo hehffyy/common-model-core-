@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.BizSelectMaterial"
+        table="M_BizSelectMaterial"
+    >
+        <comment>
+			事项与材料对照关系
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-BizSelectMaterial.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="required"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FRequired"
+        />
+
+        <property
+            name="originalRequired"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FOriginalRequired"
+        />
+
+        <property
+            name="medium"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FMedium"
+            length="32"
+        />
+
+        <property
+            name="groupGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FGroupGuid" 
+                length="32"
+                index="M_BizSelectMaterial_GroupGuid"
+            />
+        </property>
+
+        <property
+            name="materialGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FMaterialGuid"
+            length="32"
+        />
+
+        <property
+            name="isDefSelect"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FIsDefSelect"
+        />
+
+        <property
+            name="mtNums"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FMtNums"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FMtOrder"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-BizSelectMaterial.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

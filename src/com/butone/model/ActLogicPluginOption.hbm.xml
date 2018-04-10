@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.ActLogicPluginOption"
+        table="M_ActLogicPluginOption"
+    >
+        <comment>
+			环节逻辑插件选项
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ActLogicPluginOption.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="actGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FactGuid" 
+                length="32"
+                unique-key="M_ActLogicPluginOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="pluginGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FPluginGuid" 
+                length="32"
+                unique-key="M_ActLogicPluginOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FOrder"
+        />
+
+        <property
+            name="groupName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FGroupName"
+            length="20"
+        />
+
+        <property
+            name="visibleExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FvisibleExpr"
+            length="1000"
+        />
+
+        <property
+            name="visibleUIExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FVisibleUIExpr"
+            length="1000"
+        />
+
+        <property
+            name="autoServiceCronExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FautoServiceCronExpr"
+            length="50"
+        />
+
+        <property
+            name="outerService"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FOuterService" 
+            ><comment>是否发布外部服务</comment></column>
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ActLogicPluginOption.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

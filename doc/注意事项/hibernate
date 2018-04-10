@@ -1,0 +1,5 @@
+1)Catalog.hbm.xml 
+
+<many-to-one name="parent" class="com.butone.model.Catalog"
+			cascade="none" outer-join="auto" update="false" insert="false" lazy="false"
+			column="FParentGuid" not-found="ignore" />

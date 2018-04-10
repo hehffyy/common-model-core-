@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.Flow"
+        table="M_Flow"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Flow.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="bizGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FbizGuid" 
+                length="32"
+                unique-key="M_FLOW_NAME_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="model"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="Fmodel"
+        />
+
+        <property
+            name="diagram"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="Fdiagram"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="100"
+                unique-key="M_FLOW_NAME_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="dispName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDispName"
+            length="60"
+            not-null="true"
+        />
+
+        <property
+            name="funcTemplet"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FfuncTemplet"
+            length="255"
+            not-null="true"
+        />
+
+        <property
+            name="funcTemplet2"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FfuncTemplet2"
+            length="255"
+        />
+
+        <property
+            name="limitDays"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="FLimitDays"
+        />
+
+        <property
+            name="dayConutKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FdayConutKind"
+            length="10"
+        />
+
+        <property
+            name="recTitleExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FRecTitleExpr" 
+                length="1000"
+            ><comment>案卷标题</comment></column>
+        </property>
+
+        <property
+            name="limitDateExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FLimitDateExpr" 
+                length="1000"
+            />
+        </property>
+
+        <property
+            name="limitStartDateExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FLimitStartDateExpr" 
+                length="1000"
+            ><comment>限办开始日期表达式</comment></column>
+        </property>
+
+        <property
+            name="limitEffectActivity"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FlimitEffectActivity" 
+                length="100"
+            ><comment>限办生效环节(如果为空启动后立即生效，否则制定环节批转后生效)</comment></column>
+        </property>
+
+        <property
+            name="flowViewActivity"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FflowViewActivity" 
+                length="20"
+            ><comment>案卷浏览环节</comment></column>
+        </property>
+
+        <property
+            name="disabled"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="fdisabled"
+        />
+
+        <property
+            name="coopControl"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="fCoopControl"
+        />
+
+        <property
+            name="finishKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FfinishKind" 
+                length="20"
+            ><comment>默认办结类型</comment></column>
+        </property>
+
+        <property
+            name="silenceFinish"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="fsilenceFinish"
+        />
+
+        <property
+            name="oldExecutorDialog"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="fOldExecutorDialog"
+        />
+        
+        <property
+            name="materialTemplate"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FmaterialTemplate" 
+                length="20"
+            ><comment>要件模板</comment></column>
+        </property>
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <property
+            name="lastModifyTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FLastModifyTime"
+        />
+
+        <property
+            name="syncTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="FSyncTime"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Flow.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

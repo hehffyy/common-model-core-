@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.BizRuleAction"
+        table="M_BizRuleAction"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-BizRuleAction.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="relBizDatas"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FRelBizDatas"
+            length="1000"
+        />
+
+        <property
+            name="ruleGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FRuleGuid" 
+                length="32"
+                index="M_BizRuleAction_Rule"
+            />
+        </property>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FName"
+            length="200"
+        />
+
+        <property
+            name="condition"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FCondition"
+            length="1000"
+        />
+
+        <property
+            name="logicPlugin"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FLogicPlugin"
+            length="1000"
+        />
+
+        <property
+            name="pluginConfigure"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FPluginConfigure"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FOrder"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-BizRuleAction.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

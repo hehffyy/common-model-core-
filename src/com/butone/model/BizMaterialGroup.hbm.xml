@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.BizMaterialGroup"
+        table="M_BizMaterialGroup"
+    >
+        <comment>
+			业务与审批事项的对照关系
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-BizMaterialGroup.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="groupGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FGroupGuid"
+            length="32"
+        />
+
+        <property
+            name="bizGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FBizGuid"
+            length="32"
+        />
+
+        <property
+            name="condition"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FCondition"
+            length="2000"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FName"
+            length="200"
+        />
+
+        <property
+            name="isSystem"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FisSys"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-BizMaterialGroup.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.Biz"
+        table="M_Biz"
+    >
+        <comment>
+			业务表
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Biz.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="catalogGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FCatalogGuid" 
+                length="32"
+                unique-key="M_BIZ_NAME_UNQ"
+            />
+        </property>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="100"
+                unique-key="M_BIZ_NAME_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="dispName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDispName"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <property
+            name="bizKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FBizKind" 
+                length="20"
+            ><comment>业务类型</comment></column>
+        </property>
+
+        <property
+            name="bizType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FBizType" 
+                length="20"
+            ><comment>业务类型</comment></column>
+        </property>
+
+        <property
+            name="deleted"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FDeleted" 
+            ><comment>删除标记</comment></column>
+        </property>
+
+        <property
+            name="databaseName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDatabaseName"
+            length="20"
+        />
+
+        <property
+            name="ORMCreated"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FORMCreated"
+        />
+
+        <property
+            name="locked"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FLocked"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Biz.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.FlowCoopSetp"
+        table="M_FlowCoopSetp"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-FlowCoopSetp.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="100"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="dispName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDispName"
+            length="60"
+            not-null="true"
+        />
+
+        <property
+            name="fromFlow"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FfromFlow"
+            length="32"
+            not-null="true"
+        />
+
+        <property
+            name="fromAct"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FfromAct"
+            length="32"
+            not-null="true"
+        />
+
+        <property
+            name="waitAct"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FWaitAct"
+            length="32"
+        />
+
+        <property
+            name="toFlow"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FtoFlow"
+            length="32"
+            not-null="true"
+        />
+
+        <property
+            name="toAct"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FtoAct"
+            length="32"
+            not-null="true"
+        />
+
+        <property
+            name="allowRepeat"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FallowRepeat"
+        />
+
+        <property
+            name="sync"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="fsync"
+        />
+
+        <property
+            name="infoPacket"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FInfoPacket"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-FlowCoopSetp.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

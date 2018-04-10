@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.ExtendAttribute"
+        table="M_ExtendAttribute"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ExtendAttribute.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="model"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FModel" 
+                length="50"
+                unique-key="IDX_EXTATTR_MODELKEY"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="key"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FKey" 
+                length="50"
+                unique-key="IDX_EXTATTR_MODELKEY"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="value"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FValue" 
+                length="1000"
+            />
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ExtendAttribute.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

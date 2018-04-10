@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.DataBase"
+        table="M_DataBase"
+    >
+
+        <id
+            name="name"
+            column="FName"
+            type="java.lang.String"
+            length="20"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-DataBase.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="desc"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDesc"
+            length="200"
+        />
+
+        <property
+            name="type"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FType"
+            length="20"
+        />
+
+        <property
+            name="jdbcUrl"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FJdbcUrl"
+            length="100"
+        />
+
+        <property
+            name="jdbcClass"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FJdbcClass"
+            length="100"
+        />
+
+        <property
+            name="userName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FUserName"
+            length="30"
+        />
+
+        <property
+            name="password"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FPassword"
+            length="30"
+        />
+
+        <property
+            name="catalog"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FCatalog"
+            length="30"
+        />
+
+        <property
+            name="schema"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FSchema"
+            length="30"
+        />
+
+        <property
+            name="system"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="FIsSystem"
+        />
+
+        <property
+            name="defaultDatabase"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="FIsDefaultDatabase"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-DataBase.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

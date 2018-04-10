@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.FlowAct"
+        table="M_FlowAct"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-FlowAct.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="uploadField"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FuploadField" 
+                length="50"
+            />
+        </property>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="100"
+                unique-key="M_FLOWACT_NAME_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="flowGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FflowGuid" 
+                length="32"
+                unique-key="M_FLOWACT_NAME_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="dispName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FDispName"
+            length="60"
+            not-null="true"
+        />
+
+        <property
+            name="limitDays"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FLimitDays" 
+                precision="10"
+                scale="1"
+            />
+        </property>
+
+        <property
+            name="dayConutKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FdayConutKind"
+            length="10"
+        />
+
+        <property
+            name="limitDateExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FLimitDateExpr" 
+                length="1000"
+            />
+        </property>
+
+        <property
+            name="properties"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="Fproperties"
+        />
+
+        <property
+            name="flowActKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FflowActKind"
+            length="20"
+        />
+
+        <property
+            name="flowEntry"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FflowEntry"
+        />
+
+        <property
+            name="funcTemplet"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FfuncTemplet"
+            length="255"
+        />
+
+        <property
+            name="funcTemplet2"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FfuncTemplet2"
+            length="255"
+        />
+
+        <property
+            name="mainTable"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FMainTable"
+            length="32"
+        />
+
+        <property
+            name="codeFields"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FcodeFields" 
+                length="200"
+            />
+        </property>
+
+        <property
+            name="flowCoopGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FflowCoopGuid" 
+                length="32"
+            />
+        </property>
+
+        <property
+            name="visible"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FVisible" 
+            />
+        </property>
+
+        <property
+            name="isCoopReceiver"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FisCoopReceiver" 
+            />
+        </property>
+
+        <property
+            name="forbidWithdraw"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FforbidWithdraw" 
+            />
+        </property>
+        
+        <property
+            name="mobileEnable"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FmobileEnable" 
+            />
+        </property>
+
+        <property
+            name="materialAuth"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FmaterialAuth" 
+                length="30"
+            />
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-FlowAct.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

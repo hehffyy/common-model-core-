@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.BizRule"
+        table="M_BizRule"
+    >
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-BizRule.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="relBizDatas"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FRelBizDatas"
+            length="1000"
+        />
+
+        <property
+            name="bizGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FBizGuid" 
+                length="32"
+                unique-key="M_BIZRULE_NAME_BIZ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FName" 
+                length="200"
+                unique-key="M_BIZRULE_NAME_BIZ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="kind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FKind"
+            length="20"
+        />
+
+        <property
+            name="triggerEvents"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FTriggerEvents"
+            length="100"
+        />
+
+        <property
+            name="dataModels"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FDataModels"
+        />
+
+        <property
+            name="verifyLogic"
+            type="org.springframework.orm.hibernate3.support.BlobStringType"
+            update="true"
+            insert="true"
+            column="FVerifyLogic"
+        />
+
+        <property
+            name="verifyExpr"
+            type="org.springframework.orm.hibernate3.support.ClobStringType"
+            update="true"
+            insert="true"
+            column="FverifyExpr"
+        />
+
+        <property
+            name="tipExpr"
+            type="org.springframework.orm.hibernate3.support.ClobStringType"
+            update="true"
+            insert="true"
+            column="FtipExpr"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FOrder"
+        />
+
+        <property
+            name="supervise"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            column="FSupervise"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-BizRule.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.ActFormPluginOption"
+        table="M_ActFormPluginOption"
+    >
+        <comment>
+			环节表单选项
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ActFormPluginOption.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="pluginGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="fpluginGuid" 
+                length="32"
+                unique-key="M_ActFormPluginOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="actGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FactGuid" 
+                length="32"
+                unique-key="M_ActFormPluginOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="formGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FformGuid" 
+                length="32"
+                unique-key="M_ActFormPluginOption_UNQ"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="enabledExpr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FenabledExpr"
+            length="1000"
+        />
+
+        <property
+            name="tipInfo"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="FtipInfo"
+            length="200"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ActFormPluginOption.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

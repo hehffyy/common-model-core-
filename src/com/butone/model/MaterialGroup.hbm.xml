@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.MaterialGroup"
+        table="M_MaterialGroup"
+    >
+        <comment>
+			材料分组表
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-MaterialGroup.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="parentGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FParentGuid" 
+                length="32"
+                index="M_MaterialGroup_PID"
+            />
+        </property>
+
+        <property
+            name="groupName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FgroupName" 
+                length="200"
+            />
+        </property>
+
+        <property
+            name="groupKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FGroupKind" 
+                length="20"
+                not-null="true"
+            />
+        </property>
+
+        <property
+            name="groupCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FgroupCode" 
+                length="50"
+            />
+        </property>
+
+        <property
+            name="approveCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FApproveCode" 
+                length="50"
+            />
+        </property>
+
+        <property
+            name="subApproveCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FSubApproveCode" 
+                length="50"
+            />
+        </property>
+
+        <property
+            name="limitDays"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FLimitDays" 
+            />
+        </property>
+
+        <property
+            name="belongDeptId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FbelongDeptId" 
+                length="64"
+            />
+        </property>
+
+        <property
+            name="belongDeptName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FbelongDeptName" 
+                length="200"
+            />
+        </property>
+
+        <property
+            name="approveKind"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FApproveKind" 
+                length="2"
+            />
+        </property>
+
+        <property
+            name="approveLevel"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FapproveLevel" 
+                length="2"
+            />
+        </property>
+
+        <property
+            name="isInvest"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FInvest" 
+                length="2"
+            />
+        </property>
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <property
+            name="path"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FPath" 
+                length="2000"
+            />
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-MaterialGroup.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

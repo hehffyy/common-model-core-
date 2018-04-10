@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.butone.model.BizResourceFile" table="M_BizResourceFile">
+
+		<id name="guid" column="fguid" type="java.lang.String" length="32">
+			<generator class="assigned">
+				<!--
+					To add non XDoclet generator parameters, create a file named
+					hibernate-generator-params-BizResourceFile.xml containing the
+					additional parameters and place it in your merge dir.
+				-->
+			</generator>
+		</id>
+
+		<version name="verNum" column="FVerNum" type="java.lang.Integer" />
+
+		<property name="bizGuid" type="java.lang.String" update="true"
+			insert="true">
+			<column name="FBizGuid" length="32" unique-key="M_BizResourceFile_FileName"
+				not-null="true" />
+		</property>
+
+		<property name="fileName" type="java.lang.String" update="true"
+			insert="true">
+			<column name="ffileName" length="255" unique-key="M_BizResourceFile_FileName"
+				not-null="true" />
+		</property>
+
+		<property name="fileKind" type="java.lang.String" update="true"
+			insert="true">
+			<column name="ffileKind" length="20" />
+		</property>
+
+		<property name="dispName" type="java.lang.String" update="true"
+			insert="true">
+			<column name="fdispName" length="200" />
+		</property>
+
+		<property name="fileSize" type="java.lang.Integer" update="true"
+			insert="true">
+			<column name="ffileSize" />
+		</property>
+
+		<property name="content"
+			type="org.springframework.orm.hibernate3.support.BlobByteArrayType"
+			update="true" insert="true">
+			<column name="fcontent" />
+		</property>
+
+		<property name="md5" type="java.lang.String" update="true"
+			insert="true">
+			<column name="fmd5" length="1024" />
+		</property>
+
+
+		<!--
+			To add non XDoclet property mappings, create a file named
+			hibernate-properties-BizResourceFile.xml containing the additional
+			properties and place it in your merge dir.
+		-->
+
+	</class>
+
+</hibernate-mapping>

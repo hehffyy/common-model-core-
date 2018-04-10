@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.butone.model.BizRelation"
+        table="M_BizRelation"
+    >
+        <comment>
+			业务关系表
+		</comment>
+
+        <id
+            name="guid"
+            column="fguid"
+            type="java.lang.String"
+            length="32"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-BizRelation.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="verNum"
+            column="FVerNum"
+            type="java.lang.Integer"
+        />
+
+        <property
+            name="order"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="FDispOrder"
+        />
+
+        <property
+            name="bizGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FBizGuid" 
+                length="32"
+                unique-key="M_BIZREL_BIZREL_UNQ"
+                not-null="true"
+            ><comment>业务GUID</comment></column>
+        </property>
+
+        <property
+            name="relBizGuid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FRelGuid" 
+                length="32"
+                unique-key="M_BIZREL_BIZREL_UNQ"
+                not-null="true"
+            ><comment>引用业务GUID</comment></column>
+        </property>
+
+        <property
+            name="relType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FRelType" 
+                length="32"
+                not-null="true"
+            ><comment>引用类型</comment></column>
+        </property>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-BizRelation.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

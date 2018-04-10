@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.butone.model.Codekeydef" table="M_Codekeydef">
+		<comment>
+			通用编码定义
+		</comment>
+
+		<id name="guid" column="fguid" type="java.lang.String" length="32">
+			<generator class="assigned">
+				<!--
+					To add non XDoclet generator parameters, create a file named
+					hibernate-generator-params-SysDict.xml containing the additional
+					parameters and place it in your merge dir.
+				-->
+			</generator>
+		</id>
+
+		<version name="verNum" column="FVerNum" type="java.lang.Integer" />
+
+		<property name="fname" type="java.lang.String" update="true"
+			insert="true" column="Fname" length="32" />
+
+		<property name="fdescription" type="java.lang.String" update="true"
+			insert="true" column="Fdescription" length="100" />
+		<property name="fparentid" type="java.lang.String" update="true"
+			insert="true" column="Fparentid" length="32" />
+
+		<property name="fformat"
+			type="org.springframework.orm.hibernate3.support.BlobByteArrayType"
+			update="true" insert="true" column="Fformat" />
+
+		<property name="fproperty" type="java.lang.Integer" update="true"
+			insert="true" column="Fproperty" />
+
+		<property name="fcreatekind" type="java.lang.String" update="true"
+			insert="true" column="Fcreatekind" length="32" />
+		<property name="forder" type="java.lang.Integer" update="true"
+			insert="true" column="Forder" />
+
+
+	</class>
+
+</hibernate-mapping>
