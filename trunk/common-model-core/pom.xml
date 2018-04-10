@@ -75,8 +75,5 @@
 				</excludes>
 			</resource>
 		</resources>
-		<plugins>
-
-		</plugins>
 	</build>
 </project>
