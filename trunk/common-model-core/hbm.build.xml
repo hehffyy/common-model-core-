@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="使用xdoclet映射hibernate" basedir=".">
+	<property name="project.lib.dir" value="${basedir}/lib" />
+	<property name="project.src.dir" value="${basedir}/src" />
+	<property name="xdoclet.lib.dir" value="${basedir}/xdoclet-1.2.3" />
+	<property name="project.resources.dir" value="${basedir}/doc/dbscript" />
+
+	<property name="hibernate.cfg.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+	<property name="hibernate.cfg.driver" value="com.mysql.jdbc.Driver" />
+	<property name="hibernate.cfg.username" value="zfvims" />
+	<property name="hibernate.cfg.password" value="leizhimin" />
+	<property name="hibernate.cfg.jdbcurl" value="jdbc:mysql://localhost:3306/zfvims" />
+	<property name="hibernate.cfg.showsql" value="true" />
+
+
+
+
+	<path id="xdoclet.task.classpath">
+<!-- 		<pathelement -->
+<!-- 			location="E:\apache-maven-3.2.1\repository\org\hibernate\hibernate-core\3.6.10.Final\hibernate-core-3.6.10.Final.jar" /> -->
+		<fileset dir="D:\app\Tomcat_6.0_BizModel\debugWebapps\modelserver-webapp\WEB-INF\lib">
+			<include name="**/*.jar" />
+		</fileset>
+		
+		<fileset dir="${xdoclet.lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+
+		<!-- <fileset dir="${project.lib.dir}"> -->
+		<!-- <include name="**/*.jar" /> -->
+		<!-- <exclude name="**/hibernate2.jar" /> -->
+		<!-- </fileset> -->
+	</path>
+
+
+	<target name="generate-mapping">
+		<taskdef name="hibernatedoclet" classname="xdoclet.modules.hibernate.HibernateDocletTask"
+			classpathref="xdoclet.task.classpath" />
+		<hibernatedoclet destdir="${project.src.dir}" verbose="true"
+			force="false">
+			<fileset dir="${project.src.dir}">
+				<include name="com/butone/model/*.java" />
+				<include name="com/butone/vss/*.java" />
+			</fileset>
+			<hibernate version="3.0" xmlencoding="utf-8" />
+		</hibernatedoclet>
+	</target>
+
+	<target name="generate-schema-mysql">
+		<taskdef name="schemaexport" classname="org.hibernate.tool.hbm2ddl.SchemaExportTask"
+			classpathref="xdoclet.task.classpath" />
+		<property name="hibernate.dialect" value="${hibernate.cfg.dialect}" />
+		<property name="hibernate.format_sql" value="true" />
+		<property name="hibernate.use_sql_comments true" value="true" />
+		<schemaexport quiet="no" text="yes" drop="no" delimiter=";"
+			output="${project.resources.dir}/oracle-schema.sql">
+			<fileset dir="${project.src.dir}">
+				<include name="com/butone/model/*.hbm.xml" />
+				<include name="com/butone/vss/*.hbm.xml" />
+			</fileset>
+		</schemaexport>
+	</target>
+</project> 

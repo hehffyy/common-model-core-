@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE hibernate-mapping PUBLIC
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
@@ -211,6 +211,18 @@
         </property>
 
         <property
+            name="materialTemplate"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FmaterialTemplate" 
+                length="20"
+            ><comment>要件模板</comment></column>
+        </property>
+
+        <property
             name="silenceFinish"
             type="java.lang.Boolean"
             update="true"
@@ -225,18 +237,6 @@
             insert="true"
             column="fOldExecutorDialog"
         />
-        
-        <property
-            name="materialTemplate"
-            type="java.lang.String"
-            update="true"
-            insert="true"
-        >
-            <column
-                name="FmaterialTemplate" 
-                length="20"
-            ><comment>要件模板</comment></column>
-        </property>
 
         <property
             name="order"
