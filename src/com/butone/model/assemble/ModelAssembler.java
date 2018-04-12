@@ -73,7 +73,7 @@ public interface ModelAssembler<E> {
 	 */
 	void loadDefaultAssembleClasses();
 
-	Collection<Object> getSubModelCollection(Object entity, Class subCls)
+	Collection<Object> getSubModelCollection(Object entity, Class<?> subCls)
 			throws Exception;
 
 }

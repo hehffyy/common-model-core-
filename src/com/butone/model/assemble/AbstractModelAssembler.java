@@ -142,6 +142,7 @@ public abstract class AbstractModelAssembler<E> implements ModelAssembler<E> {
 		return null;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Collection<Object> getSubModelCollection(Object entity, Class subCls)
 			throws IllegalArgumentException, IllegalAccessException,

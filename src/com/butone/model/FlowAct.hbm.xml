@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE hibernate-mapping PUBLIC
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
@@ -224,17 +224,6 @@
                 name="FforbidWithdraw" 
             />
         </property>
-        
-        <property
-            name="mobileEnable"
-            type="java.lang.Boolean"
-            update="true"
-            insert="true"
-        >
-            <column
-                name="FmobileEnable" 
-            />
-        </property>
 
         <property
             name="materialAuth"
@@ -245,6 +234,17 @@
             <column
                 name="FmaterialAuth" 
                 length="30"
+            />
+        </property>
+
+        <property
+            name="mobileEnable"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="FmobileEnable" 
             />
         </property>
 

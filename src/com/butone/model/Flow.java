@@ -111,7 +111,7 @@ public class Flow extends BaseResource implements Serializable, Sort {
 	 * 是否旧版执行者选择框
 	 */
 	private Boolean oldExecutorDialog;
-	
+
 	/**
 	 * 要件模板
 	 */
@@ -350,13 +350,14 @@ public class Flow extends BaseResource implements Serializable, Sort {
 		this.finishKind = finishKind;
 	}
 
-	public String getMaterialTemplate() {
-		return materialTemplate;
-	}
 	/**
 	 * @hibernate.property
 	 * @hibernate.column name="FmaterialTemplate" length="20" comment="要件模板"
 	 */
+	public String getMaterialTemplate() {
+		return materialTemplate;
+	}
+
 	public void setMaterialTemplate(String materialTemplate) {
 		this.materialTemplate = materialTemplate;
 	}
